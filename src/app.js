@@ -2,13 +2,13 @@ import dotenv from 'dotenv';
 import express from 'express';
 import { resolve } from 'path';
 
-import homeRoutes from './src/routes/home';
-import alunoRoutes from './src/routes/aluno';
-import userRoutes from './src/routes/user';
-import tokenRoutes from './src/routes/token';
-import fotoRoutes from './src/routes/foto';
+import homeRoutes from './routes/home';
+import alunoRoutes from './routes/aluno';
+import userRoutes from './routes/user';
+import tokenRoutes from './routes/token';
+import fotoRoutes from './routes/foto';
 
-import './src/database';
+import './database';
 
 dotenv.config();
 
@@ -22,7 +22,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__dirname, 'uploads')));
+    this.app.use(express.static(resolve(__dirname, '..', 'uploads')));
   }
 
   routes() {
